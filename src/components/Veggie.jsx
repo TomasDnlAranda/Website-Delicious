@@ -43,14 +43,6 @@ const Card = styled.div`
 	}
 `;
 
-const Gradiant = styled.div`
-	z-index: 3;
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
-`;
-
 const Veggie = () => {
 	const key = 'a4d88c03894e426095f328ff476206d0';
 	const [veggie, setVeggie] = useState([]);
@@ -77,7 +69,48 @@ const Veggie = () => {
 	return (
 		<Wrapper>
 			<h3>Our Vegeterian Picks</h3>
-			<Splide options={{ perPage: 3, pagination: false, arrows: false, drag: 'free', gap: '2rem' }}>
+			<Splide
+				data-splide='{"type":"loop","perPage":3}'
+				options={{
+					pagination: false,
+					perPage: 2,
+					arrows: false,
+					drag: 'free',
+					gap: '2rem',
+					breakpoints: {
+						500: {
+							perPage: 1,
+							drag: 'free',
+							gap: '2rem',
+							pagination: false,
+						},
+						700: {
+							perPage: 2,
+							drag: 'free',
+							gap: '2rem',
+							pagination: false,
+						},
+						900: {
+							perPage: 3,
+							drag: 'free',
+							gap: '2rem',
+							pagination: false,
+						},
+						1100: {
+							perPage: 4,
+							drag: 'free',
+							gap: '2rem',
+							pagination: false,
+						},
+						2500: {
+							perPage: 5,
+							drag: 'free',
+							pagination: false,
+							gap: '2rem',
+						},
+					},
+				}}
+			>
 				{veggie.map((item) => (
 					<SplideSlide key={item.id}>
 						<Link to={`/recipe/${item.id}`}>
@@ -93,5 +126,13 @@ const Veggie = () => {
 		</Wrapper>
 	);
 };
+
+const Gradiant = styled.div`
+	z-index: 3;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+`;
 
 export default Veggie;

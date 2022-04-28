@@ -6,12 +6,11 @@ import { useNavigate } from 'react-router-dom';
 const FormStyle = styled.form`
 	position: relative;
 	width: 100%;
+	max-width: 25rem;
 	background: ${(props) => props.theme.bg_icons};
 	display: flex;
-	position: relative;
-	margin: 1rem auto 0;
-	width: 30rem;
 	align-items: center;
+	margin: 0 auto;
 	border-radius: 1rem;
 
 	input {
@@ -20,7 +19,7 @@ const FormStyle = styled.form`
 		margin: 0 0.5rem;
 		font-size: 1rem;
 		color: ${(props) => props.theme.light};
-		padding: 1rem 1rem;
+		padding: 0.5rem 1rem;
 		border-radius: 1rem;
 		outline: none;
 		flex-grow: 1;
@@ -29,6 +28,21 @@ const FormStyle = styled.form`
 	svg {
 		color: ${(props) => props.theme.light};
 		margin-left: 0.5rem;
+	}
+
+	@media only screen and (min-width: 850px) {
+		max-width: 35rem;
+		input {
+			border: none;
+			background: ${(props) => props.theme.bg_icons};
+			margin: 0 0.5rem;
+			font-size: 1rem;
+			color: ${(props) => props.theme.light};
+			padding: 1rem 1rem;
+			border-radius: 1rem;
+			outline: none;
+			flex-grow: 1;
+		}
 	}
 `;
 

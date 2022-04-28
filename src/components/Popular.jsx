@@ -78,7 +78,40 @@ const Popular = () => {
 			<Wrapper>
 				<h3>Popular Picks</h3>
 				<Splide
-					options={{ perPage: 4, pagination: false, arrows: false, drag: 'free', gap: '2rem' }}
+					options={{
+						perPage: 4,
+						pagination: false,
+						arrows: false,
+						drag: 'free',
+						gap: '2rem',
+						breakpoints: {
+							500: {
+								perPage: 1,
+								drag: 'free',
+								gap: '2rem',
+								arrows: false,
+								pagination: false,
+							},
+							700: {
+								perPage: 2,
+								drag: 'free',
+								gap: '2rem',
+								pagination: false,
+							},
+							1400: {
+								perPage: 3,
+								drag: 'free',
+								gap: '2rem',
+								pagination: false,
+							},
+							2500: {
+								perPage: 5,
+								drag: 'free',
+								pagination: false,
+								gap: '2rem',
+							},
+						},
+					}}
 				>
 					{popular.map((item) => (
 						<SplideSlide key={item.id}>
