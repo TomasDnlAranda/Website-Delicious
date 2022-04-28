@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
 	margin: 1rem;
@@ -51,7 +52,7 @@ const Gradiant = styled.div`
 `;
 
 const Veggie = () => {
-	const key = 'd0c21a078f6a4395bd4c4ec9966f7e0d';
+	const key = 'a4d88c03894e426095f328ff476206d0';
 	const [veggie, setVeggie] = useState([]);
 
 	useEffect(() => {
@@ -79,10 +80,12 @@ const Veggie = () => {
 			<Splide options={{ perPage: 3, pagination: false, arrows: false, drag: 'free', gap: '2rem' }}>
 				{veggie.map((item) => (
 					<SplideSlide key={item.id}>
-						<Card key={item.id}>
-							<p>{item.title}</p>
-							<img src={item.image} alt={item.title + item.id} />
-						</Card>
+						<Link to={`/recipe/${item.id}`}>
+							<Card key={item.id}>
+								<p>{item.title}</p>
+								<img src={item.image} alt={item.title + item.id} />
+							</Card>
+						</Link>
 						<Gradiant />
 					</SplideSlide>
 				))}
