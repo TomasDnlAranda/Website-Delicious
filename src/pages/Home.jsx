@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import Popular from '../components/Popular';
 import Veggie from '../components/Veggie';
@@ -5,8 +6,15 @@ import Veggie from '../components/Veggie';
 const Home = () => {
 	return (
 		<>
-			<Veggie />
-			<Popular />
+			<motion.div
+				animate={{ opacity: 1 }}
+				initial={{ opacity: 0 }}
+				exit={{ opacity: 0 }}
+				transition={{ duration: 1.5 }}
+			>
+				<Veggie />
+				<Popular />
+			</motion.div>
 		</>
 	);
 };
